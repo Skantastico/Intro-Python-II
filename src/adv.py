@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -61,11 +62,11 @@ print("Command: [q] exits the game, [n,e,s,w] to move around")
 while True:
     cmd = input("Where would you like to go?").lower()
     if cmd == "q":
-        print("Thanks for playing!")
+        print("\nThanks for playing!")
         quit()
     elif cmd in directions:
         new_player.move(cmd)
-        print(f"\n You are in: The {new_player.current_room}\n")
+        print(f"\nYou are in: The {new_player.current_room}\n")
     else:
         print("I didn't understand. Please choose another command.")
 #

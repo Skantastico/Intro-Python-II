@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -36,6 +37,15 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
+
+# input parser
+
+direction = ('n', 's', 'e', 'w')
+commands = ["n", "s", "e", "w", "q"]
+
+def commands():
+    for command in commands.items():
+        print(f"{command}")
 
 # Make a new player object that is currently in the 'outside' room.
 

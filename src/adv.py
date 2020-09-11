@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -40,8 +41,7 @@ room['treasure'].s_to = room['narrow']
 
 # input parser
 
-direction = ('n', 's', 'e', 'w')
-commands = ["n", "s", "e", "w", "q"]
+directions = ('n', 's', 'e', 'w')
 
 def commands():
     for command in commands.items():
@@ -49,11 +49,26 @@ def commands():
 
 # Make a new player object that is currently in the 'outside' room.
 
+new_player = Player("Ivan", room["outside"])
+print(f"Welcome, {new_player.name}!")
+print("Command: [q] exits the game, [n,e,s,w] to move around")
+
 # Write a loop that:
 #
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
+
+while True:
+    cmd = input("Where would you like to go?").lower()
+    if cmd == "q":
+        print("\nThanks for playing!")
+        quit()
+    elif cmd in directions:
+        new_player.move(cmd)
+        print(f"\nYou are in: The {new_player.current_room}\n")
+    else:
+        print("I didn't understand. Please choose another command.")
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
